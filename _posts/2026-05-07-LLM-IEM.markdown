@@ -1,0 +1,30 @@
+---
+layout: post
+title:  "LLM IEM Rearranger?"
+date:   2026-05-07 17:30:43 +0800
+categories: project diary
+---
+
+I was watching and reading about how a transformer model actually works, and it's really fascinating. Then I thought — if it's really just predicting the next token, wouldn't it be really good at being a 中文输入法, a Chinese IME? Fun fact: that was the first time I realized I had no clue what 输入法 is called in English.
+
+After some research — and by "research" I mean prompting back and forth with an AI, with some manual validation of its responses — I decided to go with a **reranking** approach.
+
+## The problem
+
+Here's what I want the IME to do. Say the user is typing a long passage like:
+
+> 可是夫人她又怎么会知道，她的大儿子早已经毕业了，还生了个可爱的小女孩，叫**张婷**
+
+A normal IME ranks candidate characters by frequency — 他 tends to outrank 她 simply because it appears more often overall. So when the user types `ta`, the IME might prompt:
+
+```
+1.他  2.她  3.塔  4.它  5.塌  6.踏  7.嗒 ...
+```
+
+In this case, the *correct* option (她) ends up at no. 2 purely because no. 1 appears more frequently in the corpus — context be damned.
+
+## The idea
+
+So if we can plug an LLM into this step, one that actually reads and understands the surrounding context...
+
+*(continued...)*
