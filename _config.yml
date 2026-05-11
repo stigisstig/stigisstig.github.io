@@ -18,10 +18,10 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Me yapping about things
+title: SimplyYapping
 email: yx@simplem3w.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Yap about dev work, Yap about thinking what dev work to do, Yap about dev work done by AI, Yap about some other things.
+  Yaps by simplem3w
 url: "https://simplem3w.com" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  stigisstig
 
